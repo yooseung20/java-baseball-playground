@@ -1,25 +1,25 @@
 package game;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public class NumberGenerateUtil {
+	private static int DEFAULT_SIZE =3;
 	private static int MIN=1;
 	private static int MAX=9;
 
-	public static int createThreeDigitNumber() {
+	public static List<Integer> createThreeDigitNumber() {
+		Set<Integer> numbers = new HashSet<>();
 
-		int hundreds = createUnits();
-		int tens = createUnits();
-		int units = createUnits();
-
-		while(hundreds == tens || tens == units || hundreds == units) {
-			hundreds = createUnits();
-			tens = createUnits();
-			units = createUnits();
+		while(numbers.size() < DEFAULT_SIZE) {
+			numbers.add(createUnits());
 		}
 
-		return hundreds * 100 + tens * 10 + units;
-
+		return new ArrayList<>(numbers);
 	}
 
 	private static int createUnits() {
