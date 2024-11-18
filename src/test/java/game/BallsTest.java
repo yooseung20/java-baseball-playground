@@ -11,36 +11,6 @@ import org.junit.jupiter.api.Test;
 public class BallsTest {
 
 	@Test
-	void isNothingWhenOneBallPlay() {
-		Balls balls = new Balls(Arrays.asList(1,2,3));
-		Ball ball = new Ball(7, 1);
-
-		BallStatus status = balls.play(ball);
-		assertThat(status).isEqualTo(BallStatus.NOTHING);
-
-	}
-
-	@Test
-	void isBallWhenOneBallPlay() {
-		Balls balls = new Balls(Arrays.asList(1,2,3));
-		Ball ball = new Ball(3, 1);
-
-		BallStatus status = balls.play(ball);
-		assertThat(status).isEqualTo(BallStatus.BALL);
-
-	}
-
-	@Test
-	void isStrikeWhenOneBallPlay() {
-		Balls balls = new Balls(Arrays.asList(1,2,3));
-		Ball ball = new Ball(1, 1);
-
-		BallStatus status = balls.play(ball);
-		assertThat(status).isEqualTo(BallStatus.STRIKE);
-
-	}
-
-	@Test
 	void isNothing() {
 		Balls balls = new Balls(Arrays.asList(1,2,3));
 		GameResult result = balls.game(Arrays.asList(4,5,6));
@@ -59,7 +29,7 @@ public class BallsTest {
 	}
 
 	@Test
-	void is3strike() {
+	void gameEnd() {
 		Balls balls = new Balls(Arrays.asList(1,2,3));
 		GameResult result = balls.game(Arrays.asList(1,2,3));
 

@@ -32,7 +32,7 @@ public class Balls {
 	}
 
 
-	public BallStatus play(Ball userBall) {
+	private BallStatus play(Ball userBall) {
 		return this.balls
 			.stream()
 			.map(ball -> ball.compare(userBall))
