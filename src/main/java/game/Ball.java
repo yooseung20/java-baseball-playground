@@ -2,11 +2,11 @@ package game;
 
 public class Ball {
 
-	private final int ballNo;
+	private final BallNo ballNo;
 	private final int position;
 
 	public Ball(int ballNo, int position)  {
-		this.ballNo = ballNo;
+		this.ballNo = new BallNo(ballNo);
 		this.position = position;
 	}
 
@@ -15,14 +15,14 @@ public class Ball {
 			return BallStatus.STRIKE;
 		}
 
-		if(userBall.matchBallNo(this.ballNo)) {
+		if (userBall.matchBallNo(this.ballNo)) {
 			return BallStatus.BALL;
 		}
 		return BallStatus.NOTHING;
 	}
 
-	private boolean matchBallNo(int ballNo) {
-		return this.ballNo == ballNo;
+	private boolean matchBallNo(BallNo ballNo) {
+		return this.ballNo.equals(ballNo);
 	}
 
 	@Override
