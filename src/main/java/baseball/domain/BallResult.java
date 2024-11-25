@@ -28,4 +28,5 @@ public class BallResult {
 	public boolean isGameEnd() {
 		return this.stike == MAX_STRIKE;
 	}
+
 }
