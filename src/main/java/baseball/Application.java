@@ -23,9 +23,11 @@ public class Application {
 	}
 
 	private static List<Integer> regenerateNumbers(BallResult ballResult, List<Integer> computer) {
+		// 아직 맞추지 못한 경우 기존의 값 그대로 활용
 		if (!ballResult.isGameEnd()) {
 			return computer;
 		}
+		// 맞춘경우 새로운 값 생성 필요
 		return NumberGenerator.createNumbers();
 	}
 
