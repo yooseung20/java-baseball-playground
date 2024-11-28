@@ -20,12 +20,20 @@ public class Balls {
 		return balls;
 	}
 
-	public BallStatus compare(Ball userBall) {
+	private BallStatus compare(Ball userBall) {
 		return this.balls
 			.stream()
 			.map(ball -> ball.compare(userBall))
 			.filter(BallStatus::isNotNothing)
 			.findAny()
 			.orElseGet(() -> BallStatus.NOTHING);
+	}
+
+	public GameResult compare(Balls users) {
+		GameResult result = new GameResult();
+		for (Ball ball : users.balls) {
+			result.report(compare(ball));
+		}
+		return result;
 	}
 }

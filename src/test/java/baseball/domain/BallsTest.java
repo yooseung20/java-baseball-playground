@@ -10,27 +10,36 @@ import org.junit.jupiter.api.Test;
 class BallsTest {
 
 	@Test
-	void 스트라이크() {
-		Balls balls = new Balls(Arrays.asList(1,2,3));
-		Ball userBall = new Ball(1,1);
+	void _1_스트라이크_1_볼() {
+		Balls computer = new Balls(Arrays.asList(1,2,3));
+		Balls user = new Balls(Arrays.asList(1,5,2));
 
-		assertThat(balls.compare(userBall)).isEqualTo(BallStatus.STRIKE);
+		GameResult result = computer.compare(user);
+
+		assertThat(result.countStrike()).isEqualTo(1);
+		assertThat(result.countBall()).isEqualTo(1);
 	}
 
 	@Test
-	void 낫씽() {
-		Balls balls = new Balls(Arrays.asList(1,2,3));
-		Ball userBall = new Ball(4,1);
+	void _3_낫씽() {
+		Balls computer = new Balls(Arrays.asList(1,2,3));
+		Balls user = new Balls(Arrays.asList(4,5,6));
 
-		assertThat(balls.compare(userBall)).isEqualTo(BallStatus.NOTHING);
+		GameResult result = computer.compare(user);
+
+		assertThat(result.countStrike()).isEqualTo(0);
+		assertThat(result.countBall()).isEqualTo(0);
 	}
 
 	@Test
-	void 볼() {
-		Balls balls = new Balls(Arrays.asList(1,2,3));
-		Ball userBall = new Ball(2,1);
+	void _3_스트라이크() {
+		Balls computer = new Balls(Arrays.asList(1,2,3));
+		Balls user = new Balls(Arrays.asList(1,2,3));
 
-		assertThat(balls.compare(userBall)).isEqualTo(BallStatus.BALL);
+		GameResult result = computer.compare(user);
+
+		assertThat(result.countStrike()).isEqualTo(3);
 	}
+
 
 }
