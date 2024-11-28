@@ -6,11 +6,14 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class InputView {
-	private final Scanner scanner = new Scanner(System.in);
 
 	public List<Integer> start() {
+		Scanner scanner = new Scanner(System.in);
 		System.out.print("숫자를 입력해 주세요 : ");
-		return toIntegerList(scanner.nextLine());
+		String input = scanner.nextLine();
+		scanner.close();
+		return toIntegerList(input);
+
 	}
 
 	private List<Integer> toIntegerList(String userBall) {
@@ -37,8 +40,12 @@ public class InputView {
 	}
 
 	public boolean restart() {
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-		return isRestart(scanner.nextInt());
+		int restart = scanner.nextInt();
+		scanner.close();
+
+		return isRestart(restart);
 	}
 
 	private boolean isRestart(int input) {

@@ -17,22 +17,30 @@ public class BaseballApplication {
 			GameResult result = play(computer, user);
 			printResult(result);
 
-			if (result.isEnd() && !inputView.restart()) {
-				break;
-			}
+			terminate(result, inputView);
+			computer = restart(result, computer);
+		}
+	}
 
-			if (result.isEnd()) {
-				computer = NumberGenerator.createDiffNumbers();
-			}
+	private static List<Integer> restart(GameResult result, List<Integer> computer) {
+		if (result.isEnd()) {
+			return NumberGenerator.createDiffNumbers();
+		}
+		return computer;
+	}
+
+	private static void terminate(GameResult result, InputView inputView) {
+		if (result.isEnd() && !inputView.restart()) {
+			System.exit(0);
 		}
 	}
 
 	private static GameResult play(List<Integer> computer, List<Integer> user) {
 		BaseballGame game = new BaseballGame(computer, user);
 		GameResult result = game.start();
+
 		return result;
 	}
-
 
 	private static void printResult(GameResult result) {
 		ResultView resultView = new ResultView();
