@@ -23,7 +23,6 @@ public class GameResult {
 			this.ball++;
 		}
 	}
-
 	public boolean isEnd() {
 		return this.strike == ENDABLE;
 	}

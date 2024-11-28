@@ -12,9 +12,8 @@ public class BaseballGame {
 		this.user = new Balls(user);
 	}
 
-	public boolean start() {
-		GameResult result = this.computer.compare(user);
-		return result.isEnd();
+	public GameResult start() {
+		return this.computer.compare(user);
 	}
 
 }
