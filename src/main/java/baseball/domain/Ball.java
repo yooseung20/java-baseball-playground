@@ -1,5 +1,7 @@
 package baseball.domain;
 
+import java.util.List;
+
 public class Ball {
 	private final BallNumber number;
 	private final BallPosition position;
